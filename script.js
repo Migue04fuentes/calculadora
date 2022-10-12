@@ -1,4 +1,3 @@
-
 // contiene la operacion o resultado parcial
 let parcial = "";
 
@@ -69,7 +68,28 @@ numero = "";
 operrealizado.innerHTML = 0;
 }
 
+// Obtener raíz cuadrada
 function raizcuadrada(){
   let raiz = Math.sqrt(parcial);
   txtresul.innerHTML = raiz;
 }
+
+// Obtener valores del teclado y bloqueo de teclas 
+document.addEventListener("keydown", teclapresionada)
+
+function teclapresionada(event){
+  let key = event.keyCode;
+  console.log(event);
+  if(key >=96 && key <= 105 || key >=48 && key <= 57 || key > 189 && key < 191 || key > 109 && key < 111){
+    operador(event.key);
+  }
+  if(key = 111 || key >= 106 && key <= 107 || key >= 108 && key <= 110){
+    operacion(event.key);
+  }
+}
+
+//bloqueo de teclas a excepción de números y op
+// function soloNumeros(e) {
+//   var key = e.charCode;
+//   return key >= 48 && key <= 57;
+// }
