@@ -8,37 +8,63 @@
   </head>
   <body>
     <div class="container">
+      <!-- muestra la operación que se va realizando -->
       <div id="operacionrealizada">0</div>
+      <!-- muestra el resultado de la operación -->
       <div id="txtresultado"></div>
 
       <div class="fila">
+        <!-- operador de la raíz cuadrada -->
         <button class="tecla1L" onclick="raizcuadrada()">√²</button>
-        <button class="tecla1L" onclick="operador('2')">X²</button>
-        <button class="tecla1L" onclick="operador('3')">x</button>
-        <button class="tecla1L" onclick="operacion('*')">x</button>
+        <!-- para realizar operaciones con exponentes -->
+        <button class="tecla1L" onclick="">X²</button>
+        <!-- volver números negativos y viceversa -->
+        <button class="tecla1L" onclick="">±</button>
+        <!-- falta por asignar operación a realizar -->
+        <button class="tecla1L" onclick="operador('.')">.</button>
       </div>
+
       <div class="fila">
+        <!-- boton número 7 -->
         <button class="tecla" onclick="operador('7')">7</button>
+        <!-- botón número 8 -->
         <button class="tecla" onclick="operador('8')">8</button>
+        <!-- botón número 9 -->
         <button class="tecla" onclick="operador('9')">9</button>
+        <!-- botón para multiplicar -->
         <button class="tecla" onclick="operacion('*')">x</button>
       </div>
+
       <div class="fila">
+        <!-- botón número 4 -->
         <button class="tecla" onclick="operador('4')">4</button>
+        <!-- botón número 5 -->
         <button class="tecla" onclick="operador('5')">5</button>
+        <!-- botón número 6 -->
         <button class="tecla" onclick="operador('6')">6</button>
+        <!-- botón para restar -->
         <button class="tecla" onclick="operacion('-')">-</button>
       </div>
+
       <div class="fila">
+        <!-- botón número 1 -->
         <button class="tecla" onclick="operador('1')">1</button>
+        <!-- botón núemro 2 -->
         <button class="tecla" onclick="operador('2')">2</button>
+        <!-- botón número 3 -->
         <button class="tecla" onclick="operador('3')">3</button>
+        <!-- botón para sumar -->
         <button class="tecla" onclick="operacion('+')">+</button>
       </div>
+
       <div class="fila">
+        <!-- botón para limpiar las area de operación y resultado -->
         <button class="tecla" onclick="limpiar()">AC</button>
+        <!-- botón número 0 -->
         <button class="tecla" onclick="operador('0')">0</button>
+        <!-- botón para dar el resultado -->
         <button class="tecla" onclick="calculo ()">=</button>
+        <!-- botón para dividir -->
         <button class="tecla" onclick="operacion('/')">/</button>
       </div>
     </div>
