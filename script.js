@@ -16,6 +16,15 @@ let numero = "";
 // para determinar si lo último presiondo es un número o una operación
 let ultimodigitopresionado = "";
 
+// funcion que limpia todo
+function limpiar() {
+  operadorseleccionado = "";
+  parcial = "";
+  txtresul.innerHTML = "";
+  numero = "";
+  operrealizado.innerHTML = 0;
+}
+
 function operador(num) {
   // concateno el número
   numero += num;
@@ -62,15 +71,6 @@ function calculo() {
   // operrealizado.innerHTML = parcial;
 }
 
-// funcion que limpia todo
-function limpiar() {
-  operadorseleccionado = "";
-  parcial = "";
-  txtresul.innerHTML = "";
-  numero = "";
-  operrealizado.innerHTML = 0;
-}
-
 // Obtener raíz cuadrada
 function raizcuadrada() {
   let raiz = Math.sqrt(parcial);
@@ -93,7 +93,6 @@ function teclapresionada(event) {
   // Realizar operación con tecla enter
   if (key == '13') {
     calculo();
-    getElementById("igual").focus();
   }
   //limpiado de pantalla por medio de la tecla delete
   if (key == '8') {
@@ -115,3 +114,5 @@ const potencia = function () {
     txtresul.innerHTML = 0;
   }
 };
+
+
