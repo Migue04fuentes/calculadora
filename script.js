@@ -82,20 +82,22 @@ document.addEventListener("keydown", teclapresionada)
 
 function teclapresionada(event) {
   let key = event.keyCode;
+  
   // validación de números
-  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
+  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key >= 109 && key < 111) {
     operador(event.key);
-    document.getElementById("btnnum0").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum1").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum2").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum3").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum4").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum5").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum6").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum7").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum8").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnnum9").style.backgroundColor = "rgb(196, 195, 195)";
-    document.getElementById("btnpunto").style.backgroundColor = "rgb(196, 195, 195)";
+    // color de teclas
+    // document.getElementById("btnnum0").className = 'teclacolor';
+    // document.getElementById("btnnum1").className = 'teclacolor';
+    // document.getElementById("btnnum2").className = 'teclacolor';
+    // document.getElementById("btnnum3").className = 'teclacolor';
+    // document.getElementById("btnnum4").className = 'teclacolor';
+    // document.getElementById("btnnum5").className = 'teclacolor';
+    // document.getElementById("btnnum6").className = 'teclacolor';
+    // document.getElementById("btnnum7").className = 'teclacolor';
+    // document.getElementById("btnnum8").className = 'teclacolor';
+    // document.getElementById("btnnum9").className = 'teclacolor';
+    // document.getElementById("btnpunto").className = '';
   }
   // validación de operadores por teclado
   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
@@ -114,43 +116,45 @@ function teclapresionada(event) {
 }
 
 // Colores al presionar la tecla
-document.addEventListener("keyup", function (event) {
-  let key = event.keyCode;
-  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
-    document.getElementById("btnnum0").style.backgroundColor = "#fff";
-    document.getElementById("btnnum1").style.backgroundColor = "#fff";
-    document.getElementById("btnnum2").style.backgroundColor = "#fff";
-    document.getElementById("btnnum3").style.backgroundColor = "#fff";
-    document.getElementById("btnnum4").style.backgroundColor = "#fff";
-    document.getElementById("btnnum5").style.backgroundColor = "#fff";
-    document.getElementById("btnnum6").style.backgroundColor = "#fff";
-    document.getElementById("btnnum7").style.backgroundColor = "#fff";
-    document.getElementById("btnnum8").style.backgroundColor = "#fff";
-    document.getElementById("btnnum9").style.backgroundColor = "#fff";
-    document.getElementById("btnpunto").style.backgroundColor = "#fff";
-  }
-  // color al presionar operadores
-  if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
-    document.getElementById("btnsumar").style.backgroundColor = "#fff";
-    document.getElementById("btnrestar").style.backgroundColor = "#fff";
-    document.getElementById("btnigual").style.backgroundColor = "#fff";
-    document.getElementById("btnpunto").style.backgroundColor = "#fff";
-    document.getElementById("btnpunto").style.backgroundColor = "#fff";
-  }
-  // Realizar operación con tecla enter
-  if (key == '13') {
-  }
-  //limpiado de pantalla por medio de la tecla delete
-  if (key == '8') {
-  }
-})
+// document.addEventListener("keyup", function (event) {
+//   let key = event.keyCode;
+//   if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
+//     document.getElementById("btnnum0").className = "tecla";
+//     document.getElementById("btnnum1").className = "tecla";
+//     document.getElementById("btnnum2").className = "tecla";
+//     document.getElementById("btnnum3").className = "tecla";
+//     document.getElementById("btnnum4").className = "tecla";
+//     document.getElementById("btnnum5").className = "tecla";
+//     document.getElementById("btnnum6").className = "tecla";
+//     document.getElementById("btnnum7").className = "tecla";
+//     document.getElementById("btnnum8").className = "tecla";
+//     document.getElementById("btnnum9").className = "tecla";
+//     // document.getElementById("btnpunto").className = "tecla";
+//   }
+//   // color al presionar operadores
+//   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
+//     document.getElementById("btnsumar").style.backgroundColor = "#fff";
+//     document.getElementById("btnrestar").style.backgroundColor = "#fff";
+//     document.getElementById("btnigual").style.backgroundColor = "#fff";
+//     document.getElementById("btnpunto").style.backgroundColor = "#fff";
+//     document.getElementById("btnpunto").style.backgroundColor = "#fff";
+//   }
+//   // Realizar operación con tecla enter
+//   if (key == '13') {
+//   }
+//   //limpiado de pantalla por medio de la tecla delete
+//   if (key == '8') {
+//   }
+// })
 
+// obtener el valor de base elevado a la 2
 const potencia = function () {
   let base = parseInt(parcial);
   let resultado = 1;
   for (let cuenta = 0; cuenta < 2; cuenta++) {
     resultado *= base;
   }
+  // para cuando el valor ingresado tenga un operador no mande NaN
   if (!Number.isNaN(resultado)) {
     txtresul.innerHTML = resultado;
   } else {
