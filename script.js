@@ -59,14 +59,14 @@ function operacion(oper) {
 // realizo el calculo de la formula matemática cuando presiona =
 function calculo() {
   // con eval evaluo la forula matemática que esta en formato string
-  if(parcial == ""){
-      txtresul.innerHTML = 0;
-  }else{
-  parcial = eval(parcial);
-  txtresul.innerHTML = parcial;
-  // vuelvo a convertir en string porsi continua la formula
-  parcial = parcial.toString();
-  numero = "";
+  if (parcial == "") {
+    txtresul.innerHTML = 0;
+  } else {
+    parcial = eval(parcial);
+    txtresul.innerHTML = parcial;
+    // vuelvo a convertir en string porsi continua la formula
+    parcial = parcial.toString();
+    numero = "";
   }
   // operrealizado.innerHTML = parcial;
 }
@@ -85,6 +85,17 @@ function teclapresionada(event) {
   // validación de números
   if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
     operador(event.key);
+    document.getElementById("btnnum0").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum1").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum2").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum3").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum4").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum5").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum6").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum7").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum8").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnnum9").style.backgroundColor = "rgb(196, 195, 195)";
+    document.getElementById("btnpunto").style.backgroundColor = "rgb(196, 195, 195)";
   }
   // validación de operadores por teclado
   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
@@ -101,6 +112,38 @@ function teclapresionada(event) {
     limpiar();
   }
 }
+
+// Colores al presionar la tecla
+document.addEventListener("keyup", function (event) {
+  let key = event.keyCode;
+  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
+    document.getElementById("btnnum0").style.backgroundColor = "#fff";
+    document.getElementById("btnnum1").style.backgroundColor = "#fff";
+    document.getElementById("btnnum2").style.backgroundColor = "#fff";
+    document.getElementById("btnnum3").style.backgroundColor = "#fff";
+    document.getElementById("btnnum4").style.backgroundColor = "#fff";
+    document.getElementById("btnnum5").style.backgroundColor = "#fff";
+    document.getElementById("btnnum6").style.backgroundColor = "#fff";
+    document.getElementById("btnnum7").style.backgroundColor = "#fff";
+    document.getElementById("btnnum8").style.backgroundColor = "#fff";
+    document.getElementById("btnnum9").style.backgroundColor = "#fff";
+    document.getElementById("btnpunto").style.backgroundColor = "#fff";
+  }
+  // color al presionar operadores
+  if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
+    document.getElementById("btnsumar").style.backgroundColor = "#fff";
+    document.getElementById("btnrestar").style.backgroundColor = "#fff";
+    document.getElementById("btnigual").style.backgroundColor = "#fff";
+    document.getElementById("btnpunto").style.backgroundColor = "#fff";
+    document.getElementById("btnpunto").style.backgroundColor = "#fff";
+  }
+  // Realizar operación con tecla enter
+  if (key == '13') {
+  }
+  //limpiado de pantalla por medio de la tecla delete
+  if (key == '8') {
+  }
+})
 
 const potencia = function () {
   let base = parseInt(parcial);
