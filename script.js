@@ -16,6 +16,8 @@ let numero = "";
 // para determinar si lo último presiondo es un número o una operación
 let ultimodigitopresionado = "";
 
+
+
 // funcion que limpia todo
 function limpiar() {
   operadorseleccionado = "";
@@ -25,7 +27,9 @@ function limpiar() {
   operrealizado.innerHTML = 0;
 }
 
+
 function operador(num) {
+
   // concateno el número
   numero += num;
   // concateno la operación hasta el momento
@@ -47,6 +51,7 @@ function operador(num) {
 
 //Detecto cuanod se presiona una operación
 function operacion(oper) {
+
   // guardo la operación que eligio
   // actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
@@ -60,9 +65,6 @@ function operacion(oper) {
     calculo();
     // parcial += oper;
     // operrealizado.innerHTML = "0";
-    if(ultimo == '/' || ultimo == '*' || ultimo == '+' || ultimo == '-'){
-
-    }
   } else {
     // voy armando la formula matematica
     parcial += oper;
@@ -107,7 +109,9 @@ function calculo() {
 
 // Obtener raíz cuadrada
 function raizcuadrada() {
-  let raiz = Math.sqrt(parcial);
+  let valorz = eval(parcial);
+  let raiz = Math.sqrt(valorz);
+
   txtresul.innerHTML = raiz;
 }
 
@@ -244,24 +248,24 @@ const potencia = function () {
 // Desactivar el focus de todos los botones
 document.addEventListener('click', function(){
   let cero = document.getElementById("btnnum0");
-  let uno = document.getElementById("btnnum0");
-  let dos = document.getElementById("btnnum0");
-  let tres = document.getElementById("btnnum0");
-  let cuatro = document.getElementById("btnnum0");
-  let cinco = document.getElementById("btnnum0");
-  let seis = document.getElementById("btnnum0");
-  let siete = document.getElementById("btnnum0");
-  let ocho = document.getElementById("btnnum0");
-  let nueve = document.getElementById("btnnum0");
-  let mas = document.getElementById("btnnum0");
-  let menos = document.getElementById("btnnum0");
-  let por = document.getElementById("btnnum0");
-  let dividir = document.getElementById("btnnum0");
-  let ac = document.getElementById("btnnum0");
-  let raiz = document.getElementById("btnnum0");
-  let expont = document.getElementById("btnnum0");
-  let masmenos = document.getElementById("btnnum0");
-  let punto = document.getElementById("btnnum0");
+  let uno = document.getElementById("btnnum1");
+  let dos = document.getElementById("btnnum2");
+  let tres = document.getElementById("btnnum3");
+  let cuatro = document.getElementById("btnnum4");
+  let cinco = document.getElementById("btnnum5");
+  let seis = document.getElementById("btnnum6");
+  let siete = document.getElementById("btnnum7");
+  let ocho = document.getElementById("btnnum8");
+  let nueve = document.getElementById("btnnum9");
+  let mas = document.getElementById("btnsumar");
+  let menos = document.getElementById("btnrestar");
+  let por = document.getElementById("btnmultiplicar");
+  let dividir = document.getElementById("btndividir");
+  let ac = document.getElementById("btndelete");
+  let raiz = document.getElementById("btnrzcuadrada");
+  let expont = document.getElementById("btnexponente");
+  let masmenos = document.getElementById("btnmasmenos");
+  let punto = document.getElementById("btnpunto");
  
   cero.blur(); 
   uno.blur();
@@ -283,3 +287,4 @@ document.addEventListener('click', function(){
   masmenos.blur();
   punto.blur();
 })
+
