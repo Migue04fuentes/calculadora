@@ -27,6 +27,20 @@
     transform: translateY(-3%);
 }
 
+/* clase para el cambio de color de las teclas al presionar*/
+.teclacolor{
+    color:white;
+    background:rgb(196, 195, 195);
+    width: 80px;
+    height: 80px;
+    margin: 3px;
+    border-radius: 20px; 
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: .3s;
+  }
+
 /* primera fila de botones */
 .tecla1L{
     width: 80px;
@@ -45,6 +59,19 @@
     color: #fff;
     transform: translateY(-3%);
     box-shadow:5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.tecla1Lpress{
+    color:white;
+    background:rgb(196, 195, 195);
+    width: 80px;
+    height: 40px;
+    margin: 3px;
+    border-radius: 20px; 
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
 }
 
 /* donde se muestra la operación a realizar */
@@ -74,17 +101,5 @@
     overflow: hidden;
 }
 
-/* clase para el cambio de color de las teclas al presionar*/
-.teclacolor{
-    color:white;
-    background:rgb(196, 195, 195);
-    width: 80px;
-    height: 80px;
-    margin: 3px;
-    border-radius: 20px; 
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    transition: .3s;
-  }
+
   

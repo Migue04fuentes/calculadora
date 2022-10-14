@@ -50,11 +50,20 @@ function operacion(oper) {
   // guardo la operación que eligio
   //   actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
-  
   // voy armando la formula matematica
-  parcial += oper;
-  numero = 0;
-  operrealizado.innerHTML = parcial;
+  let ultimo = parcial.slice(-1);
+  let num = parcial.indexOf(oper);
+  if (ultimo == oper) {
+    let num2 = parcial.substring(0,num);
+    parcial = num2+ultimo+num2;
+    calculo();
+    // parcial += oper;
+    // operrealizado.innerHTML = "0";
+  } else {
+    parcial += oper;
+    numero = 0;
+    operrealizado.innerHTML = parcial;
+  }
 }
 
 // realizo el calculo de la formula matemática cuando presiona =
@@ -62,10 +71,12 @@ function calculo() {
   // con eval evaluo la forula matemática que esta en formato string
   if (parcial == "") {
     txtresul.innerHTML = 0;
+  } else if (parcial == " ") {
+    alert("condicinal");
   } else {
     parcial = eval(parcial);
     // Límite de número a mostrar en el resultado
-    parcial = parcial.toString().substring(0,17);
+    parcial = parcial.toString().substring(0, 17);
     txtresul.innerHTML = parcial;
     // vuelvo a convertir en string porsi continua la formula
     // parcial = parcial.toString();
@@ -134,7 +145,7 @@ function teclapresionada(event) {
     }
     if (key == '107') {
       document.getElementById("btnsumar").className = 'teclacolor';
-    }if (key == '111') {
+    } if (key == '111') {
       document.getElementById("btndividir").className = 'teclacolor';
     }
 
@@ -165,7 +176,7 @@ document.addEventListener("keyup", function (event) {
     document.getElementById("btnnum7").className = "tecla";
     document.getElementById("btnnum8").className = "tecla";
     document.getElementById("btnnum9").className = "tecla";
-    // document.getElementById("btnpunto").className = "tecla";
+    document.getElementById("btnpunto").className = "tecla1L";
   }
   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
     document.getElementById("btnsumar").className = "tecla";
@@ -182,7 +193,7 @@ document.addEventListener("keyup", function (event) {
   if (key == '8') {
     document.getElementById("btndelete").className = 'tecla';
   }
-  
+
 })
 
 // obtener el valor de base elevado a la 2
