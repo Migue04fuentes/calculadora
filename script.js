@@ -50,8 +50,9 @@ function operacion(oper) {
   // guardo la operación que eligio
   //   actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
+  
   // voy armando la formula matematica
-  parcial += oper; 
+  parcial += oper;
   numero = 0;
   operrealizado.innerHTML = parcial;
 }
@@ -63,9 +64,11 @@ function calculo() {
     txtresul.innerHTML = 0;
   } else {
     parcial = eval(parcial);
+    // Límite de número a mostrar en el resultado
+    parcial = parcial.toString().substring(0,17);
     txtresul.innerHTML = parcial;
     // vuelvo a convertir en string porsi continua la formula
-    parcial = parcial.toString();
+    // parcial = parcial.toString();
     numero = "";
   }
   // operrealizado.innerHTML = parcial;
@@ -82,70 +85,105 @@ document.addEventListener("keydown", teclapresionada)
 
 function teclapresionada(event) {
   let key = event.keyCode;
-  
   // validación de números
   if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key >= 109 && key < 111) {
     operador(event.key);
-    // color de teclas
-    // document.getElementById("btnnum0").className = 'teclacolor';
-    // document.getElementById("btnnum1").className = 'teclacolor';
-    // document.getElementById("btnnum2").className = 'teclacolor';
-    // document.getElementById("btnnum3").className = 'teclacolor';
-    // document.getElementById("btnnum4").className = 'teclacolor';
-    // document.getElementById("btnnum5").className = 'teclacolor';
-    // document.getElementById("btnnum6").className = 'teclacolor';
-    // document.getElementById("btnnum7").className = 'teclacolor';
-    // document.getElementById("btnnum8").className = 'teclacolor';
-    // document.getElementById("btnnum9").className = 'teclacolor';
-    // document.getElementById("btnpunto").className = '';
+    if (key == '96') {
+      document.getElementById("btnnum0").className = 'teclacolor';
+    }
+    if (key == '97') {
+      document.getElementById("btnnum1").className = 'teclacolor';
+    }
+    if (key == '98') {
+      document.getElementById("btnnum2").className = 'teclacolor';
+    }
+    if (key == '99') {
+      document.getElementById("btnnum3").className = 'teclacolor';
+    }
+    if (key == '100') {
+      document.getElementById("btnnum4").className = 'teclacolor';
+    }
+    if (key == '101') {
+      document.getElementById("btnnum5").className = 'teclacolor';
+    }
+    if (key == '102') {
+      document.getElementById("btnnum6").className = 'teclacolor';
+    }
+    if (key == '103') {
+      document.getElementById("btnnum7").className = 'teclacolor';
+    } if (key == '104') {
+      document.getElementById("btnnum8").className = 'teclacolor';
+    } if (key == '105') {
+      document.getElementById("btnnum9").className = 'teclacolor';
+    } if (key == '110') {
+      document.getElementById("btnpunto").className = 'tecla1Lpress';
+    }
   }
   // validación de operadores por teclado
   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
     operacion(event.key);
+
+    if (key == '190') {
+      document.getElementById("btnpunto").className = 'tecla1Lpress';
+    }
+    if (key == '106') {
+      document.getElementById("btnmultiplicar").className = 'teclacolor';
+    }
+    if (key == '109') {
+      document.getElementById("btnrestar").className = 'teclacolor';
+    }
+    if (key == '107') {
+      document.getElementById("btnsumar").className = 'teclacolor';
+    }if (key == '111') {
+      document.getElementById("btndividir").className = 'teclacolor';
+    }
+
   }
   // Realizar operación con tecla enter
   if (key == '13') {
     calculo();
+    document.getElementById("btnigual").className = 'teclacolor';
   }
   //limpiado de pantalla por medio de la tecla delete
   if (key == '8') {
-    // let borrar = parcial.slice(0,-1);
-    // operrealizado.innerHTML = borrar;
     limpiar();
+    document.getElementById("btndelete").className = 'teclacolor';
   }
 }
 
 // Colores al presionar la tecla
-// document.addEventListener("keyup", function (event) {
-//   let key = event.keyCode;
-//   if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
-//     document.getElementById("btnnum0").className = "tecla";
-//     document.getElementById("btnnum1").className = "tecla";
-//     document.getElementById("btnnum2").className = "tecla";
-//     document.getElementById("btnnum3").className = "tecla";
-//     document.getElementById("btnnum4").className = "tecla";
-//     document.getElementById("btnnum5").className = "tecla";
-//     document.getElementById("btnnum6").className = "tecla";
-//     document.getElementById("btnnum7").className = "tecla";
-//     document.getElementById("btnnum8").className = "tecla";
-//     document.getElementById("btnnum9").className = "tecla";
-//     // document.getElementById("btnpunto").className = "tecla";
-//   }
-//   // color al presionar operadores
-//   if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
-//     document.getElementById("btnsumar").style.backgroundColor = "#fff";
-//     document.getElementById("btnrestar").style.backgroundColor = "#fff";
-//     document.getElementById("btnigual").style.backgroundColor = "#fff";
-//     document.getElementById("btnpunto").style.backgroundColor = "#fff";
-//     document.getElementById("btnpunto").style.backgroundColor = "#fff";
-//   }
-//   // Realizar operación con tecla enter
-//   if (key == '13') {
-//   }
-//   //limpiado de pantalla por medio de la tecla delete
-//   if (key == '8') {
-//   }
-// })
+document.addEventListener("keyup", function (event) {
+  let key = event.keyCode;
+  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
+    document.getElementById("btnnum0").className = "tecla";
+    document.getElementById("btnnum1").className = "tecla";
+    document.getElementById("btnnum2").className = "tecla";
+    document.getElementById("btnnum3").className = "tecla";
+    document.getElementById("btnnum4").className = "tecla";
+    document.getElementById("btnnum5").className = "tecla";
+    document.getElementById("btnnum6").className = "tecla";
+    document.getElementById("btnnum7").className = "tecla";
+    document.getElementById("btnnum8").className = "tecla";
+    document.getElementById("btnnum9").className = "tecla";
+    // document.getElementById("btnpunto").className = "tecla";
+  }
+  if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
+    document.getElementById("btnsumar").className = "tecla";
+    document.getElementById("btnrestar").className = "tecla";
+    document.getElementById("btndividir").className = "tecla";
+    document.getElementById("btnmultiplicar").className = "tecla";
+    document.getElementById("btnpunto").className = "tecla1L";
+  }
+  // Realizar operación con tecla enter
+  if (key == '13') {
+    document.getElementById("btnigual").className = 'tecla';
+  }
+  //limpiado de pantalla por medio de la tecla delete
+  if (key == '8') {
+    document.getElementById("btndelete").className = 'tecla';
+  }
+  
+})
 
 // obtener el valor de base elevado a la 2
 const potencia = function () {
