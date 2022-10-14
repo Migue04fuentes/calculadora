@@ -288,3 +288,7 @@ document.addEventListener('click', function(){
   punto.blur();
 })
 
+function cerrarventana(){
+  window.close('index.html');
+}
+
