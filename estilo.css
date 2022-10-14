@@ -9,7 +9,7 @@
 
 /* botones */
 .tecla{
-    width: 80px;
+    width: 22%;
     height: 80px;
     margin: 3px;
     border-radius: 20px; 
@@ -27,13 +27,13 @@
     transform: translateY(-3%);
 }
 
-<<<<<<< HEAD
-=======
+
+
 /* clase para el cambio de color de las teclas al presionar*/
 .teclacolor{
     color:white;
     background:rgb(196, 195, 195);
-    width: 80px;
+    width: 22%;
     height: 80px;
     margin: 3px;
     border-radius: 20px; 
@@ -43,7 +43,6 @@
     transition: .3s;
   }
 
->>>>>>> b9d218d7c319b28800cd9676ff8db158682bf6c7
 /* primera fila de botones */
 .tecla1L{
     width: 80px;
@@ -64,8 +63,7 @@
     box-shadow:5px 5px 20px rgba(0,0,0,0.4);
 }
 
-<<<<<<< HEAD
-=======
+
 .tecla1Lpress{
     color:white;
     background:rgb(196, 195, 195);
@@ -79,7 +77,7 @@
     transition: .3s;
 }
 
->>>>>>> b9d218d7c319b28800cd9676ff8db158682bf6c7
+
 /* donde se muestra la operación a realizar */
 #operacionRealizada{
     background-color: #ccc;

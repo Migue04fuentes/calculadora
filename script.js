@@ -45,21 +45,26 @@ function operador(num) {
   }
 }
 
-//Detecto cuanod se presiona una operacion
+//Detecto cuanod se presiona una operación
 function operacion(oper) {
   // guardo la operación que eligio
-  //   actualizo el tipo de letra presionado
+  // actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
-  // voy armando la formula matematica
+ 
   let ultimo = parcial.slice(-1);
   let num = parcial.indexOf(oper);
+  // ejecute la operación con el mismo número en caso de que vuelva a dar en el mismo operador  
   if (ultimo == oper) {
-    let num2 = parcial.substring(0,num);
-    parcial = num2+ultimo+num2;
+    let num2 = parcial.substring(0, num);
+    parcial = num2 + ultimo + num2;
     calculo();
     // parcial += oper;
     // operrealizado.innerHTML = "0";
+    if(ultimo == '/' || ultimo == '*' || ultimo == '+' || ultimo == '-'){
+
+    }
   } else {
+    // voy armando la formula matematica
     parcial += oper;
     numero = 0;
     operrealizado.innerHTML = parcial;
@@ -68,136 +73,130 @@ function operacion(oper) {
 
 // realizo el calculo de la formula matemática cuando presiona =
 function calculo() {
+ 
+  //Último valor de la operación
+  let valorult =parcial.slice(-1);
+  let numc = parcial.indexOf(valorult);
   // con eval evaluo la forula matemática que esta en formato string
   if (parcial == "") {
     txtresul.innerHTML = 0;
-  } else if (parcial == " ") {
-    alert("condicinal");
-  } else {
-    parcial = eval(parcial);
+  }else if(valorult == "/" || valorult == "*" || valorult == "-" || valorult == "+"){
+    let numc2 = parcial.substring(0, numc);
+     parcial = numc2 + valorult + numc2;
+     parcial = eval(parcial);
     // Límite de número a mostrar en el resultado
     parcial = parcial.toString().substring(0, 17);
     txtresul.innerHTML = parcial;
     // vuelvo a convertir en string porsi continua la formula
     // parcial = parcial.toString();
     numero = "";
+  }else if(parcial == '0/0'){
+    txtresul.innerHTML = "Indefinido"
+  }else{
+
+    parcial = eval(parcial);
+    // Límite de número a mostrar en el resultado
+    parcial = parcial.toString().substring(0, 17);
+    txtresul.innerHTML = parcial;
+    // vuelvo a convertir en string por si continua la formula
+    // parcial = parcial.toString();
+    numero = "";
+    // operrealizado.innerHTML = parcial;
   }
-  // operrealizado.innerHTML = parcial;
 }
 
-<<<<<<< HEAD
-// funcion que limpia todo
-function limpiar() {
-operadorseleccionado = "";
-parcial = "";
-txtresul.innerHTML = "";
-numero = "";
-operrealizado.innerHTML = 0;
-}
-
-// Obtener raíz cuadrada
-function raizcuadrada(){
-=======
 // Obtener raíz cuadrada
 function raizcuadrada() {
->>>>>>> b9d218d7c319b28800cd9676ff8db158682bf6c7
   let raiz = Math.sqrt(parcial);
   txtresul.innerHTML = raiz;
 }
 
-// Obtener valores del teclado y bloqueo de teclas 
-document.addEventListener("keydown", teclapresionada)
+// Obtener valores del teclado y bloqueo de teclas
+document.addEventListener("keydown", teclapresionada);
 
-<<<<<<< HEAD
-function teclapresionada(event){
-  let key = event.keyCode;
-  console.log(event);
-  if(key >=96 && key <= 105 || key >=48 && key <= 57 || key > 189 && key < 191 || key > 109 && key < 111){
-    operador(event.key);
-  }
-  if(key = 111 || key >= 106 && key <= 107 || key >= 108 && key <= 110){
-    operacion(event.key);
-  }
-}
-
-//bloqueo de teclas a excepción de números y op
-// function soloNumeros(e) {
-//   var key = e.charCode;
-//   return key >= 48 && key <= 57;
-// }
-=======
 function teclapresionada(event) {
   let key = event.keyCode;
   // validación de números
-  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key >= 109 && key < 111) {
+  if (
+    (key >= 96 && key <= 105) ||
+    (key >= 48 && key <= 57) ||
+    (key >= 109 && key < 111)
+  ) {
     operador(event.key);
-    if (key == '96') {
-      document.getElementById("btnnum0").className = 'teclacolor';
+    if (key == "96") {
+      document.getElementById("btnnum0").className = "teclacolor";
     }
-    if (key == '97') {
-      document.getElementById("btnnum1").className = 'teclacolor';
+    if (key == "97") {
+      document.getElementById("btnnum1").className = "teclacolor";
     }
-    if (key == '98') {
-      document.getElementById("btnnum2").className = 'teclacolor';
+    if (key == "98") {
+      document.getElementById("btnnum2").className = "teclacolor";
     }
-    if (key == '99') {
-      document.getElementById("btnnum3").className = 'teclacolor';
+    if (key == "99") {
+      document.getElementById("btnnum3").className = "teclacolor";
     }
-    if (key == '100') {
-      document.getElementById("btnnum4").className = 'teclacolor';
+    if (key == "100") {
+      document.getElementById("btnnum4").className = "teclacolor";
     }
-    if (key == '101') {
-      document.getElementById("btnnum5").className = 'teclacolor';
+    if (key == "101") {
+      document.getElementById("btnnum5").className = "teclacolor";
     }
-    if (key == '102') {
-      document.getElementById("btnnum6").className = 'teclacolor';
+    if (key == "102") {
+      document.getElementById("btnnum6").className = "teclacolor";
     }
-    if (key == '103') {
-      document.getElementById("btnnum7").className = 'teclacolor';
-    } if (key == '104') {
-      document.getElementById("btnnum8").className = 'teclacolor';
-    } if (key == '105') {
-      document.getElementById("btnnum9").className = 'teclacolor';
-    } if (key == '110') {
-      document.getElementById("btnpunto").className = 'tecla1Lpress';
+    if (key == "103") {
+      document.getElementById("btnnum7").className = "teclacolor";
+    }
+    if (key == "104") {
+      document.getElementById("btnnum8").className = "teclacolor";
+    }
+    if (key == "105") {
+      document.getElementById("btnnum9").className = "teclacolor";
+    }
+    if (key == "110") {
+      document.getElementById("btnpunto").className = "tecla1Lpress";
     }
   }
   // validación de operadores por teclado
-  if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
+  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190") {
     operacion(event.key);
 
-    if (key == '190') {
-      document.getElementById("btnpunto").className = 'tecla1Lpress';
+    if (key == "190") {
+      document.getElementById("btnpunto").className = "tecla1Lpress";
     }
-    if (key == '106') {
-      document.getElementById("btnmultiplicar").className = 'teclacolor';
+    if (key == "106") {
+      document.getElementById("btnmultiplicar").className = "teclacolor";
     }
-    if (key == '109') {
-      document.getElementById("btnrestar").className = 'teclacolor';
+    if (key == "109") {
+      document.getElementById("btnrestar").className = "teclacolor";
     }
-    if (key == '107') {
-      document.getElementById("btnsumar").className = 'teclacolor';
-    } if (key == '111') {
-      document.getElementById("btndividir").className = 'teclacolor';
+    if (key == "107") {
+      document.getElementById("btnsumar").className = "teclacolor";
     }
-
+    if (key == "111") {
+      document.getElementById("btndividir").className = "teclacolor";
+    }
   }
   // Realizar operación con tecla enter
-  if (key == '13') {
+  if (key == "13") {
     calculo();
-    document.getElementById("btnigual").className = 'teclacolor';
+    document.getElementById("btnigual").className = "teclacolor";
   }
   //limpiado de pantalla por medio de la tecla delete
-  if (key == '8') {
+  if (key == "8") {
     limpiar();
-    document.getElementById("btndelete").className = 'teclacolor';
+    document.getElementById("btndelete").className = "teclacolor";
   }
 }
 
 // Colores al presionar la tecla
 document.addEventListener("keyup", function (event) {
   let key = event.keyCode;
-  if (key >= 96 && key <= 105 || key >= 48 && key <= 57 || key > 109 && key < 111) {
+  if (
+    (key >= 96 && key <= 105) ||
+    (key >= 48 && key <= 57) ||
+    (key > 109 && key < 111)
+  ) {
     document.getElementById("btnnum0").className = "tecla";
     document.getElementById("btnnum1").className = "tecla";
     document.getElementById("btnnum2").className = "tecla";
@@ -210,7 +209,7 @@ document.addEventListener("keyup", function (event) {
     document.getElementById("btnnum9").className = "tecla";
     document.getElementById("btnpunto").className = "tecla1L";
   }
-  if (key > 110 && key < 112 || key >= 106 && key <= 107 || key == '190') {
+  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190") {
     document.getElementById("btnsumar").className = "tecla";
     document.getElementById("btnrestar").className = "tecla";
     document.getElementById("btndividir").className = "tecla";
@@ -218,15 +217,14 @@ document.addEventListener("keyup", function (event) {
     document.getElementById("btnpunto").className = "tecla1L";
   }
   // Realizar operación con tecla enter
-  if (key == '13') {
-    document.getElementById("btnigual").className = 'tecla';
+  if (key == "13") {
+    document.getElementById("btnigual").className = "tecla";
   }
   //limpiado de pantalla por medio de la tecla delete
-  if (key == '8') {
-    document.getElementById("btndelete").className = 'tecla';
+  if (key == "8") {
+    document.getElementById("btndelete").className = "tecla";
   }
-
-})
+});
 
 // obtener el valor de base elevado a la 2
 const potencia = function () {
@@ -243,5 +241,45 @@ const potencia = function () {
   }
 };
 
-
->>>>>>> b9d218d7c319b28800cd9676ff8db158682bf6c7
+// Desactivar el focus de todos los botones
+document.addEventListener('click', function(){
+  let cero = document.getElementById("btnnum0");
+  let uno = document.getElementById("btnnum0");
+  let dos = document.getElementById("btnnum0");
+  let tres = document.getElementById("btnnum0");
+  let cuatro = document.getElementById("btnnum0");
+  let cinco = document.getElementById("btnnum0");
+  let seis = document.getElementById("btnnum0");
+  let siete = document.getElementById("btnnum0");
+  let ocho = document.getElementById("btnnum0");
+  let nueve = document.getElementById("btnnum0");
+  let mas = document.getElementById("btnnum0");
+  let menos = document.getElementById("btnnum0");
+  let por = document.getElementById("btnnum0");
+  let dividir = document.getElementById("btnnum0");
+  let ac = document.getElementById("btnnum0");
+  let raiz = document.getElementById("btnnum0");
+  let expont = document.getElementById("btnnum0");
+  let masmenos = document.getElementById("btnnum0");
+  let punto = document.getElementById("btnnum0");
+ 
+  cero.blur(); 
+  uno.blur();
+  dos.blur();
+  tres.blur();
+  cuatro.blur();
+  cinco.blur();
+  seis.blur();
+  siete.blur();
+  ocho.blur();
+  nueve.blur();
+  mas.blur();
+  menos.blur();
+  por.blur();
+  dividir.blur();
+  ac.blur();
+  raiz.blur();
+  expont.blur();
+  masmenos.blur();
+  punto.blur();
+})
