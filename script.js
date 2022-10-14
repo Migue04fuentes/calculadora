@@ -232,7 +232,7 @@ document.addEventListener("keyup", function (event) {
 
 // obtener el valor de base elevado a la 2
 const potencia = function () {
-  let base = parseInt(parcial);
+  let base = parseFloat(parcial);
   let resultado = 1;
   for (let cuenta = 0; cuenta < 2; cuenta++) {
     resultado *= base;
