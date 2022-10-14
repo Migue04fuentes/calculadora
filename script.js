@@ -51,7 +51,7 @@ function operacion(oper) {
   //   actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
   // voy armando la formula matematica
-  parcial += oper;
+  parcial += oper; 
   numero = 0;
   operrealizado.innerHTML = parcial;
 }
