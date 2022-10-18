@@ -79,7 +79,6 @@ function operacion(oper) {
     newvalor += oper;
     parcial = newvalor;
     operrealizado.innerHTML = parcial;
-    alert(parcial);
   } else {
     // voy armando la formula matematica
     parcial += oper;
