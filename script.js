@@ -160,17 +160,14 @@ function convertir() {
   if (digitouno == '' && operealz == '0') {
     parcial = "-";
     operrealizado.innerHTML = "-";
-    alert("entre a la primera condición");
   } else if (negativo == '-') {
     txtresul.innerHTML = parcial.slice(0);
     parcial = operrealizado.innerHTML = parcial.slice(0);
-    alert("entre a la segunda condición");
   } else if (operealz != '' && digitouno =='') {
     operrealizado.innerHTML = operealz;
   } else {
     txtresul.innerHTML = '-' + parcial;
     parcial = operrealizado.innerHTML = '-' + parcial;
-    alert("entre a la tercera condición");
   }
 }
 
@@ -225,34 +222,34 @@ function teclapresionada(event) {
     }
   }
   // validación de operadores por teclado
-  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190") {
+  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190" || key == "109") {
     operacion(event.key);
 
     if (key == "190") {
       document.getElementById("btnpunto").className = "tecla1Lpress";
     }
     if (key == "106") {
-      document.getElementById("btnmultiplicar").className = "teclacolor";
-    }
-    if (key == "109") {
-      document.getElementById("btnrestar").className = "teclacolor";
+      document.getElementById("btnmultiplicar").className = "teclacoloroperador";
     }
     if (key == "107") {
-      document.getElementById("btnsumar").className = "teclacolor";
+      document.getElementById("btnsumar").className = "teclacoloroperador";
     }
     if (key == "111") {
-      document.getElementById("btndividir").className = "teclacolor";
+      document.getElementById("btndividir").className = "teclacoloroperador";
+    }
+    if (key == "109") {
+      document.getElementById("btnrestar").className = "teclacoloroperador";
     }
   }
   // Realizar operación con tecla enter
   if (key == "13") {
     calculo();
-    document.getElementById("btnigual").className = "teclacolor";
+    document.getElementById("btnigual").className = "teclacoloroperador";
   }
   //limpiado de pantalla por medio de la tecla delete
   if (key == "8") {
     limpiar();
-    document.getElementById("btndelete").className = "teclacolor";
+    document.getElementById("btndelete").className = "teclacolordelete";
   }
 }
 
@@ -276,20 +273,20 @@ document.addEventListener("keyup", function (event) {
     document.getElementById("btnnum9").className = "tecla";
     document.getElementById("btnpunto").className = "tecla1L";
   }
-  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190") {
-    document.getElementById("btnsumar").className = "tecla";
-    document.getElementById("btnrestar").className = "tecla";
-    document.getElementById("btndividir").className = "tecla";
-    document.getElementById("btnmultiplicar").className = "tecla";
+  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190" || key == "109") {
+    document.getElementById("btnsumar").className = "tecla teclaoperador";
+    document.getElementById("btnrestar").className = "tecla teclaoperador";
+    document.getElementById("btndividir").className = "tecla teclaoperador";
+    document.getElementById("btnmultiplicar").className = "tecla teclaoperador";
     document.getElementById("btnpunto").className = "tecla1L";
   }
   // Realizar operación con tecla enter
   if (key == "13") {
-    document.getElementById("btnigual").className = "tecla";
+    document.getElementById("btnigual").className = "tecla teclaoperador";
   }
   //limpiado de pantalla por medio de la tecla delete
   if (key == "8") {
-    document.getElementById("btndelete").className = "tecla";
+    document.getElementById("btndelete").className = "tecladelete";
   }
 });
 

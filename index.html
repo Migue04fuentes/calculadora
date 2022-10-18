@@ -32,7 +32,7 @@
         <!-- botón número 9 -->
         <button class="tecla" id="btnnum9" onclick="operador('9')">9</button>
         <!-- botón para multiplicar -->
-        <button class="tecla" id="btnmultiplicar" onclick="operacion('*')">x</button>
+        <button class="tecla teclaoperador" id="btnmultiplicar" onclick="operacion('*')">x</button>
       </div>
 
       <div class="fila">
@@ -44,7 +44,7 @@
         <!-- botón número 6 -->
         <button class="tecla" id="btnnum6" onclick="operador('6')">6</button>
         <!-- botón para restar -->
-        <button class="tecla" id="btnrestar" onclick="operacion('-')">-</button>
+        <button class="tecla teclaoperador" id="btnrestar" onclick="operacion('-')">-</button>
       </div>
 
       <div class="fila">
@@ -55,18 +55,18 @@
         <!-- botón número 3 -->
         <button class="tecla" id="btnnum3" onclick="operador('3')">3</button>
         <!-- botón para sumar -->
-        <button class="tecla" id="btnsumar" onclick="operacion('+')">+</button>
+        <button class="tecla teclaoperador" id="btnsumar" onclick="operacion('+')">+</button>
       </div>
 
       <div class="fila">
         <!-- botón para limpiar las area de operación y resultado -->
-        <button class="tecla" id="btndelete" onclick="limpiar()">AC</button>
+        <button class="tecla tecladelete" id="btndelete" onclick="limpiar()">AC</button>
         <!-- botón número 0 -->
         <button class="tecla" id="btnnum0" onclick="operador('0')">0</button>
         <!-- botón para dar el resultado -->
-        <button class="tecla" id="btnigual" onclick="calculo ()">=</button>
+        <button class="tecla teclaoperador" id="btnigual" onclick="calculo ()">=</button>
         <!-- botón para dividir -->
-        <button class="tecla" id="btndividir" onclick="operacion('/')">/</button>
+        <button class="tecla teclaoperador" id="btndividir" onclick="operacion('/')">/</button>
       </div>
     </div>
     <script src="script.js" type="text/javascript"></script>
