@@ -51,13 +51,20 @@ function operador(num) {
 
 //Detecto cuanod se presiona una operación
 function operacion(oper) {
-
   // guardo la operación que eligio
   // actualizo el tipo de letra presionado
   ultimodigitopresionado = "operacion";
- 
+
   let ultimo = parcial.slice(-1);
   let num = parcial.indexOf(oper);
+
+
+  //Ver si hay dor operadores seguidos
+  let ultoper = parcial.slice(-2);
+  let ultoper2 = ultoper.slice(-1);
+
+
+  // if(operrealizado == '0'){}
   // ejecute la operación con el mismo número en caso de que vuelva a dar en el mismo operador  
   if (ultimo == oper) {
     let num2 = parcial.substring(0, num);
@@ -65,45 +72,66 @@ function operacion(oper) {
     calculo();
     // parcial += oper;
     // operrealizado.innerHTML = "0";
+
+    //Cambio de signo 
+  } else if (ultoper2 == '/' || ultoper2 == '*' || ultoper2 == '+' || ultoper2 == '-') {
+    let newvalor = parcial.substring(0, parcial.length - 1);
+    newvalor += oper;
+    parcial = newvalor;
+    operrealizado.innerHTML = parcial;
+
   } else {
     // voy armando la formula matematica
     parcial += oper;
     numero = 0;
+    // let ultimodigito = parcial.slice(-2);
+    // var primerdigito = ultimodigito.charAt(0);
+    // alert(primerdigito +"  "+ultimodigito);
     operrealizado.innerHTML = parcial;
   }
 }
 
 // realizo el calculo de la formula matemática cuando presiona =
 function calculo() {
- 
+
   //Último valor de la operación
-  let valorult =parcial.slice(-1);
+  let valorult = parcial.slice(-1);
   let numc = parcial.indexOf(valorult);
   // con eval evaluo la forula matemática que esta en formato string
   if (parcial == "") {
     txtresul.innerHTML = 0;
-  }else if(valorult == "/" || valorult == "*" || valorult == "-" || valorult == "+"){
-    let numc2 = parcial.substring(0, numc);
-     parcial = numc2 + valorult + numc2;
-     parcial = eval(parcial);
-    // Límite de número a mostrar en el resultado
-    parcial = parcial.toString().substring(0, 17);
-    txtresul.innerHTML = parcial;
-    // vuelvo a convertir en string porsi continua la formula
-    // parcial = parcial.toString();
-    numero = "";
-  }else if(parcial == '0/0'){
+  } else if (valorult == "/" || valorult == "*" || valorult == "-" || valorult == "+") {
+    try {
+      let numc2 = parcial.substring(0, numc);
+      parcial = numc2 + valorult + numc2;
+      parcial = eval(parcial);
+      // Límite de número a mostrar en el resultado
+      parcial = parcial.toString().substring(0, 17);
+      txtresul.innerHTML = parcial;
+      // vuelvo a convertir en string porsi continua la formula
+      // parcial = parcial.toString();
+      numero = "";
+    } catch (error) {
+      console.log(error);
+      operrealizado.innerHTML = '0';
+    }
+  } else if (parcial == '0/0') {
     txtresul.innerHTML = "Indefinido"
-  }else{
+  } else {
+    try {
+      parcial = eval(parcial);
+      // Límite de número a mostrar en el resultado
+      parcial = parcial.toString().substring(0, 17);
+      txtresul.innerHTML = parcial;
+      // vuelvo a convertir en string por si continua la formula
+      // parcial = parcial.toString();
+      numero = "";
+      // operrealizado.innerHTML = parcial;
+    } catch (error) {
+      console.log(error);
+      operrealizado.innerHTML = '0';
+    }
 
-    parcial = eval(parcial);
-    // Límite de número a mostrar en el resultado
-    parcial = parcial.toString().substring(0, 17);
-    txtresul.innerHTML = parcial;
-    // vuelvo a convertir en string por si continua la formula
-    // parcial = parcial.toString();
-    numero = "";
-    // operrealizado.innerHTML = parcial;
   }
 }
 
@@ -114,6 +142,41 @@ function raizcuadrada() {
 
   txtresul.innerHTML = raiz;
 }
+
+
+
+//Convertir a negativo y positivo
+function convertir() {
+
+  //ver el contenido del display de resultado
+  let digitouno = txtresul.innerHTML;
+
+  //contenido del display de la operación
+  let operealz = operrealizado.innerHTML;
+
+  //verificar si el número es negativo
+  let negativo = digitouno.charAt(0);
+
+  if (digitouno == '' && operealz == '0') {
+    parcial = "-";
+    operrealizado.innerHTML = "-";
+    alert("entre a la primera condición");
+  } else if (negativo == '-') {
+    txtresul.innerHTML = parcial.slice(0);
+    parcial = operrealizado.innerHTML = parcial.slice(0);
+    alert("entre a la segunda condición");
+  } else if (operealz != '' && digitouno =='') {
+    operrealizado.innerHTML = operealz;
+  } else {
+    txtresul.innerHTML = '-' + parcial;
+    parcial = operrealizado.innerHTML = '-' + parcial;
+    alert("entre a la tercera condición");
+  }
+}
+
+
+
+
 
 // Obtener valores del teclado y bloqueo de teclas
 document.addEventListener("keydown", teclapresionada);
@@ -246,7 +309,7 @@ const potencia = function () {
 };
 
 // Desactivar el focus de todos los botones
-document.addEventListener('click', function(){
+document.addEventListener('click', function () {
   let cero = document.getElementById("btnnum0");
   let uno = document.getElementById("btnnum1");
   let dos = document.getElementById("btnnum2");
@@ -266,8 +329,8 @@ document.addEventListener('click', function(){
   let expont = document.getElementById("btnexponente");
   let masmenos = document.getElementById("btnmasmenos");
   let punto = document.getElementById("btnpunto");
- 
-  cero.blur(); 
+
+  cero.blur();
   uno.blur();
   dos.blur();
   tres.blur();
@@ -288,7 +351,6 @@ document.addEventListener('click', function(){
   punto.blur();
 })
 
-function cerrarventana(){
-  window.close('index.html');
-}
+
+
 
