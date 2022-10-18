@@ -79,7 +79,7 @@ function operacion(oper) {
     newvalor += oper;
     parcial = newvalor;
     operrealizado.innerHTML = parcial;
-
+    alert(parcial);
   } else {
     // voy armando la formula matematica
     parcial += oper;
@@ -220,9 +220,13 @@ function teclapresionada(event) {
     if (key == "110") {
       document.getElementById("btnpunto").className = "tecla1Lpress";
     }
+    // Tecla restar
+    if (key == "109") {
+      document.getElementById("btnrestar").className = "teclacoloroperador";
+    }
   }
   // validación de operadores por teclado
-  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190" || key == "109") {
+  if ((key > 110 && key < 112) || (key >= 106 && key <= 107) || key == "190") {
     operacion(event.key);
 
     if (key == "190") {
@@ -236,9 +240,6 @@ function teclapresionada(event) {
     }
     if (key == "111") {
       document.getElementById("btndividir").className = "teclacoloroperador";
-    }
-    if (key == "109") {
-      document.getElementById("btnrestar").className = "teclacoloroperador";
     }
   }
   // Realizar operación con tecla enter
